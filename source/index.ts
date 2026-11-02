@@ -666,6 +666,7 @@ type ThemeSource = typeof nativeTheme.themeSource;
 
 ipc.answerRenderer<undefined, StoreType['useWorkChat']>('get-config-useWorkChat', async () => config.get('useWorkChat'));
 ipc.answerRenderer<undefined, StoreType['showMessageButtons']>('get-config-showMessageButtons', async () => config.get('showMessageButtons'));
+ipc.answerRenderer<undefined, StoreType['emojiCompletion']>('get-config-emojiCompletion', async () => config.get('emojiCompletion'));
 ipc.answerRenderer<undefined, ThemeSource>('get-config-theme', async () => config.get('theme'));
 ipc.answerRenderer<undefined, StoreType['privateMode']>('get-config-privateMode', async () => config.get('privateMode'));
 ipc.answerRenderer<undefined, StoreType['vibrancy']>('get-config-vibrancy', async () => config.get('vibrancy'));

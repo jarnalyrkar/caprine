@@ -248,6 +248,15 @@ Press Command/Ctrl+R in Caprine to see your changes.
 			submenu: await generateEmojiSubmenu(updateMenu),
 		},
 		{
+			label: 'Emoji Shortcode Completion',
+			type: 'checkbox',
+			checked: config.get('emojiCompletion'),
+			click(menuItem) {
+				config.set('emojiCompletion', menuItem.checked);
+				sendAction('set-emoji-completion', menuItem.checked);
+			},
+		},
+		{
 			label: 'Bounce Dock on Message',
 			type: 'checkbox',
 			visible: is.macos,

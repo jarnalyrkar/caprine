@@ -40,6 +40,7 @@
 		"electron-updater": "^6.1.8",
 		"electron-util": "^0.17.2",
 		"element-ready": "^5.0.0",
+		"emoji-datasource": "^16.0.0",
 		"facebook-locales": "^1.0.916",
 		"is-online": "^9.0.1",
 		"json-schema-typed": "^8.0.1",
@@ -109,7 +110,9 @@
 	"build": {
 		"files": [
 			"**/*",
-			"!media${/*}"
+			"!media${/*}",
+			"!node_modules/emoji-datasource/img${/*}",
+			"!node_modules/emoji-datasource/emoji_pretty.json"
 		],
 		"asarUnpack": [
 			"static/Icon.png"

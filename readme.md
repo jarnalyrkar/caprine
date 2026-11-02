@@ -41,6 +41,7 @@
 - Silent auto-updates
 - Custom text size
 - Emoji style setting
+- Slack-style emoji shortcodes (`:heart_eyes:`)
 - Respects Do Not Disturb\*
 
 \*macOS only
@@ -303,6 +304,12 @@ You can send code blocks by using [Markdown syntax](https://github.com/adam-p/ma
 
 <div align="center"><img src="media/screenshot-codeblocks-dark.png" width="784"></div>
 <div align="center"><img src="media/screenshot-codeblocks-light.png" width="784"></div>
+
+### Emoji shortcodes
+
+Type `:` followed by at least two characters, like `:thu`, to get a list of matching emoji. Use <kbd>↑</kbd>/<kbd>↓</kbd> to pick one and <kbd>Enter</kbd> or <kbd>Tab</kbd> to insert it, or <kbd>Esc</kbd> to dismiss the list. Typing a complete shortcode, like `:heart_eyes:`, replaces it with the emoji right away. The shortcodes are the same ones used by Slack and Signal.
+
+You can turn this off in `Preferences → Emoji Shortcode Completion`.
 
 ### Background behavior
 

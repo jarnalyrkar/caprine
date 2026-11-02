@@ -6,6 +6,7 @@ import {nativeTheme} from '@electron/remote';
 import selectors from './browser/selectors';
 import {toggleVideoAutoplay} from './autoplay';
 import {sendConversationList} from './browser/conversation-list';
+import {initEmojiCompletion, setEmojiCompletionEnabled} from './browser/emoji-completion';
 import {IToggleSounds} from './types';
 
 async function withMenu(
@@ -178,6 +179,10 @@ ipc.answerMain('insert-emoji', async () => {
 
 ipc.answerMain('insert-sticker', () => {
 	document.querySelector<HTMLElement>('.x1n2onr6.x1iyjqo2.xw2csxc > div:nth-child(2) > span > div')!.click();
+});
+
+ipc.answerMain('set-emoji-completion', (enabled: boolean) => {
+	setEmojiCompletionEnabled(enabled);
 });
 
 ipc.answerMain('attach-files', () => {
@@ -797,6 +802,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 	// Hook auto-scroll observer
 	observeAutoscroll();
+
+	// Enable `:shortcode:` emoji completion in the message composer
+	initEmojiCompletion();
+	setEmojiCompletionEnabled(await ipc.callMain<undefined, boolean>('get-config-emojiCompletion'));
 
 	// Hook broken dark mode observer
 	observeThemeBugs();
